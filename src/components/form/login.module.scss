@@ -39,6 +39,12 @@
         border: 1px solid #ccc;
         margin-bottom: 15px;
       }
+
+      .icon {
+        width: 25px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
     }
 
     button {
@@ -55,6 +61,7 @@
 
       &.disable {
         background-color: rgba(0, 123, 255, 0.35);
+
         &:hover {
           background-color: rgba(0, 123, 255, 0.35);
         }

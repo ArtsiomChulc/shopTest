@@ -26,11 +26,10 @@ export const fetchCards = createAppAsyncThunk("cards/fetchCards",
             let {data}: PostgrestSingleResponse<CardType[]> = await supabase
                 .from('shopCard')
                 .select('*')
-
+            dispatch(appActions.setAppStatus({status: "succeeded"}))
             if (data) {
                 return data
             }
-            dispatch(appActions.setAppStatus({status: "succeeded"}))
         } catch (e) {
             return rejectWithValue(null)
         }

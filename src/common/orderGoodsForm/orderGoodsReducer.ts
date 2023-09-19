@@ -37,8 +37,8 @@ export const sendContactForm = createAppAsyncThunk<any, any>("contactForm/sendCo
                     prices: product.map(pr => pr.price)
                 })
                 .select()
-            toast.success(`Мы с вами свяжемся ${name}`)
             dispatch(appActions.setAppStatus({status: "succeeded"}))
+            toast.success(`Мы с вами свяжемся ${name}`)
             if (data.data) {
                 return data
             }

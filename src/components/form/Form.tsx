@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import styles from './login.module.scss';
+import s from './login.module.scss';
 import {AppRootStateType} from "App/store";
 import {toast} from "react-toastify";
 import {RequestStatusType} from "App/appReducer";
 import {useSelector} from "react-redux";
+
+import {ReactComponent as Icon} from '../../assets/img/icons/iconForPassword.svg';
+
 
 type PropsType = {
     title: string
@@ -11,9 +14,11 @@ type PropsType = {
 }
 
 const Form = (props: PropsType) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    const [showPassword, setShowPassword] = useState<boolean>(false)
 
     const status = useSelector<AppRootStateType, RequestStatusType>(state => state.app.status)
 
@@ -52,12 +57,16 @@ const Form = (props: PropsType) => {
         }
     }
 
+    const onChangeType = () => {
+        setShowPassword(!showPassword)
+    }
+
     return (
-        <div className={styles.loginContainer}>
+        <div className={s.loginContainer}>
             <h2>Вход</h2>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                {props.title === 'Sign Up' ? <div className={styles.formGroup}>
-                    <label htmlFor="username">Имя</label>
+            <form className={s.form} onSubmit={handleSubmit}>
+                {props.title === 'Sign Up' ? <div className={s.formGroup}>
+                    <label htmlFor="username">Name</label>
                     <input
                         type="text"
                         id="username"
@@ -66,8 +75,8 @@ const Form = (props: PropsType) => {
                         disabled={status === 'loading'}
                     />
                 </div> : ''}
-                <div className={styles.formGroup}>
-                    <label htmlFor="username">Электронная почта</label>
+                <div className={s.formGroup}>
+                    <label htmlFor="username">E-mail</label>
                     <input
                         type="email"
                         id="username"
@@ -76,19 +85,20 @@ const Form = (props: PropsType) => {
                         disabled={status === 'loading'}
                     />
                 </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="password">Пароль</label>
+                <div className={s.formGroup}>
+                    <label htmlFor="password">Password</label>
                     <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         id="password"
                         value={password}
                         onChange={handlePasswordChange}
                         disabled={status === 'loading'}
                     />
+                    <Icon onClick={onChangeType} className={s.icon}/>
                 </div>
                 <button disabled={status === 'loading'}
                         onClick={() => onClickHandler(email, password, name)}
-                        className={`${status === 'loading' ? styles.disable : ''}`}
+                        className={`${status === 'loading' ? s.disable : ''}`}
                 >{props.title}</button>
             </form>
         </div>
