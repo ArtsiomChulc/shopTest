@@ -65,7 +65,6 @@ const useStyles = makeStyles(() => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        border: '1px solid #fff'
     },
     burgerBox: {
         marginRight: '5%',
