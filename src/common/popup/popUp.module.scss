@@ -1,0 +1,36 @@
+.PopUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f61010;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+
+  p {
+    color: white;
+    align-self: center;
+    padding-bottom: 20px;
+  }
+
+  button {
+    padding: 5px 10px;
+    width: 100px;
+    align-self: center;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}

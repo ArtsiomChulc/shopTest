@@ -1,0 +1,50 @@
+.checkOutWrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: center;
+
+  @media (max-width: 767.9px) {
+    justify-content: center;
+  }
+
+  .infoTitle {
+    display: flex;
+    flex-direction: column;
+    font-size: calc(12px + 8 * (100vw / 1440));
+    gap: 15px;
+    margin-top: 50px;
+    margin-left: 30px;
+    text-align: center;
+
+    span {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4785F4;
+      background-image: url('../../assets/img/icons/iconForButtonProduct.svg');
+      background-position: 10px;
+      background-repeat: no-repeat;
+      background-size: 6%;
+      color: #fff;
+      text-decoration: none !important;
+      border-radius: 4px;
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #2267F2;
+      }
+    }
+
+  }
+
+  .cardCheckOut {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
