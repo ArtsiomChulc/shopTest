@@ -6,7 +6,7 @@ import Login from "../components/form/Login";
 const LoginPage = () => {
     return (
         <div style={{margin: '0 auto'}}>
-            <h1>Login</h1>
+            <h1>Login Page</h1>
             <Login />
             <p>
                 Or <Link to={'/register'}>Register</Link>
